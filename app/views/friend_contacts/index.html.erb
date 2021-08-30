@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friend_contacts.each do |friend_contact| %>
+        <% if friend_contact.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to friend_contact.first_name + ' ' + friend_contact.last_name, friend_contact %>
+            </td>
+            <td><%= friend_contact.email %></td>
+            <td><%= friend_contact.phone %></td>
+            <td><%= friend_contact.twitter %></td>
+            <td>
+              <%= link_to 'Destroy', friend_contact, method: :delete, data: { confirm: 'Are you sure?' },
+               class: "btn btn-outline-danger btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Friend', new_friend_contact_path, class:'btn btn-secondary' %>
+<% else %>
+  Hello, Ruby On Rails Developer<br>
+  Today is <%= Time.now.strftime('%A') %>.
+<% end %>
+

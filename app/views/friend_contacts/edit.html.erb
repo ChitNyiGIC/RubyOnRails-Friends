@@ -1,0 +1,8 @@
+<h1>Editing Friend</h1>
+<br/>
+<%= render 'form', friend_contact: @friend_contact %>
+<br/>
+<%= link_to 'Show', @friend_contact, class:"btn btn-secondary" %> |
+<%= link_to 'Destroy', @friend_contact, method: :delete, data: { confirm: 'Are you sure?' },
+    class: "btn btn-danger" %> |
+<%= link_to 'Back', friend_contacts_path, class:"btn btn-dark" %>

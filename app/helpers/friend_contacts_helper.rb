@@ -1,0 +1,2 @@
+module FriendContactsHelper
+end
